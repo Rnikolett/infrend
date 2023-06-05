@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+
+<form class="container " [formGroup]="searchByNameForm">
+  <div class="col s6">
+    <input type="text" class="form-control" formControlName="searchbyName" placeholder="Keresés név szerint">
+ </div>
+ <div class="center">
+  <button [disabled]="permission==false" (click)="searchByName()" class="btn deep-orange">Keresés</button>
+</div>
+</form>
+
+<form class="container " [formGroup]="searchByIdForm">
+  <div class="col s6">
+    <input type="text" class="form-control" formControlName="searchbyId" placeholder="Keresés azonosító szerint">
+ </div>
+ <div class="center">
+  <button [disabled]="permission==false" (click)="searchById()" class="btn deep-orange">Keresés</button>
+</div>
+</form>
+
+
+<h4 class="center green-text" *ngIf="successmsg">{{successmsg}}</h4>
+
+
+<table class="container highlight centered">
+    <thead>
+      <tr>
+          <th style="width:10%">#</th>
+          <th style="width:20%">Név</th>
+          <th style="width:20%">Irányítószám</th>
+          <th style="width:20%">Város</th>
+          <th style="width:20%">Cím</th>
+          <th style="width:20%">Módosítások</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let partner of readedData">
+        <td>{{partner.id}}</td>
+        <td>{{partner.name}}</td>
+        <td>{{partner.zipCode}}</td>
+        <td>{{partner.city}}</td>
+        <td>{{partner.address}}</td>
+        <td>
+            <button class="btn red" [disabled]="permission==false" (click)="deleteID(partner.id)">Törlés</button>
+            &nbsp;
+            <button [disabled]="permission==false" [routerLink]="['/createPartner',partner.id]" class="btn blue">Módosít</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

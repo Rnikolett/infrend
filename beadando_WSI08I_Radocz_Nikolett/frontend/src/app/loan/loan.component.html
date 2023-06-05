@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="center container row">
+    <h5>Gép kölcsönzés</h5>
+    <h5 class="green-text">{{success}}</h5>
+    <h5 class="red-text">{{errormsg}}</h5>
+    <div class="col s6">
+        <p>Válaszd ki a partner azonosítóját:</p>
+        <select [(ngModel)]="selectedPartnerOption" class="browser-default">
+            <option value="undefined">Válaszd ki az ügyfél azonosítóját</option>
+            <option *ngFor="let partner of readedDataPartner" [value]="partner.id">{{partner.id}}, {{partner.name}}</option>
+            
+          </select>
+    </div>
+    
+    <div class="col s6">
+        <p>Válaszd ki a gép azonosítóját:</p>
+        <select [(ngModel)]="selectedMachineOption" class="browser-default">
+            <option value="undefined">Válaszd ki az gép azonosítóját</option>
+            <option *ngFor="let machine of readedDataMachine" [value]="machine.id">{{machine.id}}, {{machine.machineName}}</option>
+          </select>
+    </div>
+    <p class="col s12"></p>
+    <button class="btn deep-orange" (click)="loanSubmit()">Kölcsönzés</button>
+
+</div>
+    

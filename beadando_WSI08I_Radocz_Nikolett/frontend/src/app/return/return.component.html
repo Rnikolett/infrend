@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="center container row">
+    <h5>Gép visszahozás</h5>
+    <h5 class="green-text">{{success}}</h5>
+    <h5 class="red-text">{{errormsg}}</h5>
+    <div class="col s6 push-s3">
+        <p>Válaszd ki, hogy ki hozta vissza a gépet/gépeket:</p>
+        <select [(ngModel)]="selectedPartnerOption" class="browser-default">
+            <option value="undefined">Válaszd ki az ügyfél azonosítóját</option>
+            <option *ngFor="let partner of readedDataPartner" [value]="partner.id">{{partner.id}}, {{partner.name}}</option>
+            
+          </select>
+    </div>
+    <div class="col s12">
+      <p>Bérelt napok:</p>
+      <input class = "col s4 push-s4" [(ngModel)]="days" type="number">
+    </div>
+    <div class="col s12">
+        <p>
+            <label>
+              <input type="checkbox" [(ngModel)]="checkbox"/>
+              <span>Van sérülés a gépeken? (+20.000.-Ft)</span>
+            </label>
+          </p>
+    </div>
+    <p class="col s12"></p>
+   <div class="col s6">
+        <button class="btn deep-orange" (click)="calculatePrice()">Számolás</button>
+   </div>
+   <div class="col s6">
+    <button class="btn deep-orange" (click)="machineReturned()">Fizetés rendezve</button>
+    </div>
+   <div class="col s12">
+    <h6>Összeg: {{sumToPay}}</h6>
+   </div>
+
+</div>
+    

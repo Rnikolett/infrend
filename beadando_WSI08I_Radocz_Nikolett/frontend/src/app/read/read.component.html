@@ -1,27 +1,33 @@
 <app-navbar></app-navbar>
 
-<form class="container " [formGroup]="searchByNameForm">
-  <div class="col s6">
+<form class="container" [formGroup]="searchByNameForm">
+  <div class="row justify-content-md-center">
+    <div class="col-md-6 offset-md-1">
     <input type="text" class="form-control" formControlName="searchbyName" placeholder="Keresés név szerint">
  </div>
- <div class="center">
-  <button [disabled]="permission==false" (click)="searchByName()" class="btn deep-orange">Keresés</button>
+  <div class="col-md-3 offset-md-1">
+  <button [disabled]="permission==false" (click)="searchByName()" class="btn btn-primary">Keresés</button>
 </div>
+  </div>
+  
+ 
 </form>
 
-<form class="container " [formGroup]="searchByIdForm">
-  <div class="col s6">
-    <input type="text" class="form-control" formControlName="searchbyId" placeholder="Keresés azonosító szerint">
+<form class="container p-3" [formGroup]="searchByIdForm">
+  <div class="row justify-content-md-center">
+    <div class="col-md-6 offset-md-1">
+      <input type="text" class="form-control" formControlName="searchbyId" placeholder="Keresés azonosító szerint">
+    </div>
+    <div class="col-md-3 offset-md-1">
+      <button [disabled]="permission==false"  (click)="searchById()" class="btn btn btn-primary">Keresés</button>
+    </div>
  </div>
- <div class="center">
-  <button [disabled]="permission==false"  (click)="searchById()" class="btn deep-orange">Keresés</button>
-</div>
 </form>
+<br>
+<h4 class="center text-success" *ngIf="successmsg">{{successmsg}}</h4>
 
-<h4 class="center green-text" *ngIf="successmsg">{{successmsg}}</h4>
 
-
-<table class="container highlight centered">
+<table class="container">
     <thead>
       <tr>
           <th style="width:10%">#</th>
@@ -46,9 +52,9 @@
         <td>{{machine.chassisNumber}}</td>
         <td>{{machine.partner_id}}</td>
         <td>
-            <button [disabled]="permission==false" class="btn red" (click)="deleteID(machine.id)">Törlés</button>
+            <button [disabled]="permission==false" class="btn btn-danger" (click)="deleteID(machine.id)">Törlés</button>
             &nbsp;
-            <button [disabled]="permission==false" [routerLink]="['/createMachine',machine.id]" class="btn blue">Módosít</button>
+            <button [disabled]="permission==false" [routerLink]="['/createMachine',machine.id]" class="btn btn-warning">Módosít</button>
         </td>
       </tr>
     </tbody>

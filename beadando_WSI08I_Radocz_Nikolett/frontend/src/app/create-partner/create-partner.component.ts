@@ -26,6 +26,7 @@ export class CreatePartnerComponent implements OnInit  {
           zipCode: res.data[0].zipCode,
           city: res.data[0].city,
           address: res.data[0].address,
+          ballance: res.data[0].ballance,
         });
       });
     }
@@ -35,7 +36,8 @@ export class CreatePartnerComponent implements OnInit  {
     'name': new FormControl('',Validators.required),
     'zipCode': new FormControl('',Validators.required),
     'city': new FormControl('',Validators.required),
-    'address': new FormControl('', Validators.required)
+    'address': new FormControl('', Validators.required),
+    'ballance': new FormControl('', Validators.required)
   });
 
    //create new partner

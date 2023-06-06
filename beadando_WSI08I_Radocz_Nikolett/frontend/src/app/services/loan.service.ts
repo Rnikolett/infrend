@@ -14,6 +14,7 @@ export class LoanService {
   getPartnerIdAndNameUrl = 'http://localhost:3000/getPartnerIdAndName';
   setPartnerIdForMachineUrl = 'http://localhost:3000/setPartnerIdForMachine';
   loanMachineUrl = 'http://localhost:3000/loanMachine';
+  getPartnerBallanceUrl = 'http://localhost:3000/getPartnerBallance';
 
 
   setStateBusy(id:any):Observable<any>{
@@ -40,5 +41,8 @@ export class LoanService {
 
   loanMachine(data:any):Observable<any>{
     return this.http.post(`${this.loanMachineUrl}`,data);
+  }
+  getPartnerBallance():Observable<any>{
+    return this.http.get(`${this.getPartnerBallanceUrl}`);
   }
 }

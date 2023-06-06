@@ -1,28 +1,36 @@
 <app-navbar></app-navbar>
-<div class="center container">
-    <h5 *ngIf="!getParamID">Új ügyfél felvétele</h5>
-    <h5 *ngIf="getParamID">Ügyfél módosítása</h5>
-    <h5 class="red-text">{{errormsg}}</h5>
-    <h5 class="green-text">{{successmsg}}</h5>
+<div class="container">
+    <h5 class="text-center" *ngIf="!getParamID">Új ügyfél felvétele</h5>
+    <h5 class="text-center" *ngIf="getParamID">Ügyfél módosítása</h5>
+    <h5 class="text-danger">{{errormsg}}</h5>
+    <h5 class="text-success">{{successmsg}}</h5>
     <form class="white row" [formGroup]="partnerForm">
-        <div class="col s6">
+        <div class="col-md-3">
            <input type="text" class="form-control" formControlName="name" placeholder="Ügyfél neve">
         </div>
-        <div class="col s3">
+        <div class="col-md-2">
            <input type="number" class="form-control" formControlName="zipCode" placeholder="Irányítószám">
         </div>
-        <div class="col s3">
+        <div class="col-md-2">
            <input type="text" class="form-control" formControlName="city" placeholder="Város">
         </div>
-        <div class="col s12">
+        <div class="col-md-3">
            <input type="text" class="form-control" formControlName="address" placeholder="Cím">
         </div>
-   
-        <div class="center" *ngIf="!getParamID" >
-            <button (click)="partnerSubmit()" class="btn deep-orange">Létrehoz</button>
+        <div class="col-md-2">
+         <input type="text" class="form-control" formControlName="ballance" placeholder="Egyenleg">
+      </div>
+        
+        <div class="row">
+         <div class="p-3 col-md-3 offset-md-6" *ngIf="!getParamID" >
+            <button (click)="partnerSubmit()" class="btn btn-primary">Létrehoz</button>
         </div>
-        <div class="center" *ngIf="getParamID" (click)="partnerUpdate()">
-         <button class="btn deep-orange">Módosít</button>
-     </div>
+        </div>
+        <div class="row">
+         <div class="p-3 col-md-3 offset-md-6" *ngIf="getParamID" (click)="partnerUpdate()">
+            <button class="btn btn-warning">Módosít</button>
+        </div>
+        </div>
+        
     </form>
 </div>

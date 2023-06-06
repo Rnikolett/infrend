@@ -23,13 +23,12 @@ export class LoginComponent {
   });
 
   loginSubmit(){
-
     if(this.loginForm.valid){
       this.service.getLoginData(this.loginForm.value).subscribe((res)=>{
         if(res.data[0].numberOfUsers==1){
           this.router.navigate(["/read"]);
           localStorage.setItem('token', 'abc123');
-          this.loginForm.value.username == "niki" ? localStorage.setItem('userType','admin') : localStorage.setItem('userType', 'user');
+          this.loginForm.value.username == "admin" ? localStorage.setItem('userType','admin') : localStorage.setItem('userType', 'user');
         }
         else{
           this.errormsg='Hibás a felhasználónév vagy a jelszó'

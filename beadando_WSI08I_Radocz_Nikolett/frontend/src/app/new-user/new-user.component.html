@@ -1,17 +1,20 @@
 <app-navbar></app-navbar>
-<div class="center container">
-    <form class="white row" [formGroup]="newUserForm">
-        <h5>Új Felhasználó</h5>
-        <h5 class="red-text">{{errormsg}}</h5>
-        <h5 class="green-text">{{success}}</h5>
-        <div class="col s6">
+<div class="container">
+    <form class="row" [formGroup]="newUserForm">
+        <h5 class="text-center">Új Felhasználó</h5>
+        <h5 class="text-danger">{{errormsg}}</h5>
+        <h5 class="text-success">{{success}}</h5>
+        <div class="col-md-6">
             <input type="text" class="form-control" formControlName="username" placeholder="Felhasználónév">
         </div>
-        <div class="col s6">
+        <div class="col-md-6">
             <input type="text" class="form-control" formControlName="password" placeholder="Jelszó">
         </div>
-        <div class="center">
-            <button (click)="userSubmit()" class="btn deep-orange">Létrehoz</button>
+        <div class="row">
+            <div class="p-3 col-md-3 offset-md-6">
+                <button (click)="userSubmit()" class="btn btn-primary">Létrehoz</button>
+            </div>
+            
         </div>
     </form>
 </div>

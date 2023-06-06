@@ -1,21 +1,23 @@
 <app-navbar></app-navbar>
-<div class="center container row">
-    <h5>Gép visszahozás</h5>
-    <h5 class="green-text">{{success}}</h5>
-    <h5 class="red-text">{{errormsg}}</h5>
-    <div class="col s6 push-s3">
-        <p>Válaszd ki, hogy ki hozta vissza a gépet/gépeket:</p>
-        <select [(ngModel)]="selectedPartnerOption" class="browser-default">
+<div class="container">
+    <h5 class="text-center">Gép visszahozás</h5>
+    <h5 class="text-success">{{success}}</h5>
+    <h5 class="text-danger">{{errormsg}}</h5>
+
+    <div class="p-3 row justify-content-md-center">
+        <p class="col-md-4 text-left">Válaszd ki, hogy ki hozta vissza a gépet/gépeket:</p>
+        <select [(ngModel)]="selectedPartnerOption" class="browser-default col-md-6">
             <option value="undefined">Válaszd ki az ügyfél azonosítóját</option>
             <option *ngFor="let partner of readedDataPartner" [value]="partner.id">{{partner.id}}, {{partner.name}}</option>
-            
           </select>
     </div>
-    <div class="col s12">
-      <p>Bérelt napok:</p>
-      <input class = "col s4 push-s4" [(ngModel)]="days" type="number">
+
+    <div class="p-3 row justify-content-md-center">
+      <p class="col-md-4 text-left">Bérelt napok:</p>
+      <input class = "col-md-6" [(ngModel)]="days" type="number">
     </div>
-    <div class="col s12">
+
+    <div class="offset-md-5">
         <p>
             <label>
               <input type="checkbox" [(ngModel)]="checkbox"/>
@@ -23,16 +25,17 @@
             </label>
           </p>
     </div>
-    <p class="col s12"></p>
-   <div class="col s6">
-        <button class="btn deep-orange" (click)="calculatePrice()">Számolás</button>
+    
+   <div class="col-md-3 offset-md-6">
+        <button class="btn btn-warning" (click)="calculatePrice()">Számolás</button>
    </div>
-   <div class="col s6">
-    <button class="btn deep-orange" (click)="machineReturned()">Fizetés rendezve</button>
-    </div>
-   <div class="col s12">
+   
+   <div class="col-md-3">
     <h6>Összeg: {{sumToPay}}</h6>
    </div>
+   <div class="col-md-2">
+    <button class="btn btn-primary" (click)="machineReturned()">Fizetés</button>
+    </div>
 
 </div>
     

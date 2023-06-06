@@ -1,27 +1,33 @@
-<div class="row">
-    <div class="col s12 m8 offset-m2 offset-l4">
-        <div class="card z-depth-5">
-            <div class="card-action deep-orange white-text z-depth-3">
-                <h3>Gép kölcsönző</h3>
-            </div>
-            <div class="card-content">
-                <div *ngIf="errormsg" class="center red-text">Password or username is invalid</div>
-                <form [formGroup]="loginForm">
-                    <div class="input-field">
-                        <i class="mateial-icons prefix">account_circle</i>
-                        <input name="username" formControlName="username" placeholder="Username" type="text">
-                    </div><br>
-                    <div class="input-field">
-                        <i class="material-icons prefix">lock</i>
-                        <input name="password" formControlName="password" placeholder="password" type="password">
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="mb-5">Gép kölcsönző</h3>
+
+                        <div class="card-content">
+                            <div *ngIf="errormsg" class="center red-text">Hibás felhasználónév vagy jelszó</div>
+
+                            <form [formGroup]="loginForm">
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" id="username" formControlName="username"type="text">
+                                    <label class="form-label" for="username">Username</label>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" id="password" formControlName="password" type="password">
+                                    <label class="form-label" for="password">Password</label>
+                                </div>
+                                <div>
+                                    <a (click)="loginSubmit()" class="btn btn-primary">Login</a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="center">
-                        <button (click)="loginSubmit()" class="btn btn-primary">Login</button>
-                        <a (click)="loginSubmit()" class="btn btn-primary">Login</a>
-                    </div>
-                </form>
+                    
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+</section>

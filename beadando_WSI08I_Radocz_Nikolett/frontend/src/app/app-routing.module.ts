@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'createPartner', component:CreatePartnerComponent, canActivate:[AuthGuard, RoleGuard]},
   {path:'loan', component:LoanComponent, canActivate:[AuthGuard, RoleGuard]},
   {path:'return', component:ReturnComponent, canActivate:[AuthGuard, RoleGuard]},
-  {path:'newUser', component:NewUserComponent, canActivate:[AuthGuard, RoleGuard]}
+  {path:'newUser', component:NewUserComponent}
 ];
 
 @NgModule({

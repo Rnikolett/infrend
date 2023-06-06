@@ -1,0 +1,29 @@
+1. MySQL DB indítása xamp,mamp szervereken a 3060-as porton
+2, backend mappába belépve a terminállal kiadni a npm start parancsot 
+3. Frontend mappába belépve kiadni az ng serve parancsot (ha nincs telepítve akkor először npm install -g @angular/cli)
+
+
+Az adatbázis és a táblák létrehozása:
+-- Adatbázis: `infsys_assignment`
+
+Tábla szerkezet ehhez a táblához `machines`
+
+CREATE TABLE machines (machineName varchar(255) NOT NULL, acquisition varchar(255) NOT NULL, manufacturer varchar(255) NOT NULL, state varchar(255) NOT NULL, chassisNumber varchar(255) NOT NULL, id int(11) NOT NULL, partner_Id int(11) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+Tábla szerkezet ehhez a táblához `partners`
+
+CREATE TABLE partners (id int(11) NOT NULL, name varchar(255) NOT NULL, zipCode int(11) NOT NULL, city varchar(255) NOT NULL, address varchar(255) NOT NULL, ballance int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+Tábla szerkezet ehhez a táblához `users`
+
+CREATE TABLE users ( username varchar(255) NOT NULL, password varchar(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE machines ADD PRIMARY KEY (id);
+
+ALTER TABLE partners ADD PRIMARY KEY (id);
+
+ALTER TABLE machines MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+ALTER TABLE partners MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+insert into users (username, password) values ("admin", "password");
